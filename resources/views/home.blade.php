@@ -6,7 +6,6 @@
 @section('content')
     <div class="content-wrapper">
     @include('partials.content-header', ['name'=>'Home', 'key'=>'home'])
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
