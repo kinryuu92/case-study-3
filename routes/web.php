@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [AdminProductController::class, 'index'])->name('product.index');
         Route::get('/create', [AdminProductController::class, 'create'])->name('product.create');
         Route::post('/store', [AdminProductController::class, 'store'])->name('product.store');
+        Route::get('/edit/{id}  ', [AdminProductController::class, 'edit'])->name('product.edit');
     });
 });
 
