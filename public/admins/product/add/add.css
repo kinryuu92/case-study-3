@@ -6,6 +6,10 @@
 }
 .image_detail_product, .feature_image {
     width: 100%;
-    height: 130px;
+    height: 130zpx;
     object-fit: cover;
+}
+
+.alert-danger {
+    padding: 3px 5px;
 }

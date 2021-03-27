@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\SettingAdminControler;
+use App\Http\Controllers\SliderAdminControler;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +25,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
         Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
     });
+
     Route::prefix('menus')->group(function () {
         Route::get('/', [MenuController::class, 'index'])->name('menus.index');
         Route::get('/create', [MenuController::class, 'create'])->name('menus.create');
@@ -32,6 +35,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
 
     });
+
     Route::prefix('product')->group(function () {
         Route::get('/', [AdminProductController::class, 'index'])->name('product.index');
         Route::get('/create', [AdminProductController::class, 'create'])->name('product.create');
@@ -40,5 +44,25 @@ Route::prefix('admin')->group(function () {
         Route::post('/update/{id}  ', [AdminProductController::class, 'update'])->name('product.update');
         Route::get('/delete/{id}  ', [AdminProductController::class, 'delete'])->name('product.delete');
     });
+
+    Route::prefix('slider')->group(function () {
+        Route::get('/', [SliderAdminControler::class, 'index'])->name('slider.index');
+        Route::get('/create', [SliderAdminControler::class, 'create'])->name('slider.create');
+        Route::post('/store', [SliderAdminControler::class, 'store'])->name('slider.store');
+        Route::get('/edit/{id}  ', [SliderAdminControler::class, 'edit'])->name('slider.edit');
+        Route::post('/update/{id}  ', [SliderAdminControler::class, 'update'])->name('slider.update');
+        Route::get('/delete/{id}  ', [SliderAdminControler::class, 'delete'])->name('slider.delete');
+
+
+    });
+
+    Route::prefix('settings')->group(function () {
+        Route::get('/', [SettingAdminControler::class, 'index'])->name('settings.index');
+        Route::get('/create', [SettingAdminControler::class, 'create'])->name('settings.create');
+
+
+
+    });
+
 });
 

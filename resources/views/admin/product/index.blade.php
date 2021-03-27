@@ -5,16 +5,15 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('admins/product/index/list.css') }}" >
+    <link rel="stylesheet" href="{{ asset('admins/product/index/list.css') }}">
 @endsection
 
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('vendors/sweetAlert2/sweetalert2@10.js') }}"></script>
     <script src="{{ asset('admins/product/index/list.js') }}"></script>
 @endsection
 
 @section('content')
-
     <div class="content-wrapper">
         @include('partials.content-header', ['name'=>'product', 'key'=>'List'])
         <div class="content">
@@ -42,7 +41,8 @@
                                     <td>{{ $productItem->name }}</td>
                                     <td>{{ number_format($productItem->price) }}</td>
                                     <td>
-                                        <img class="product_image_150_100" src="{{ $productItem->feature_image_path }}" alt="">
+                                        <img class="product_image_150_100" src="{{ $productItem->feature_image_path }}"
+                                             alt="">
                                     </td>
                                     <td>{{ optional($productItem->category)->name}}</td>
                                     <td>
@@ -58,9 +58,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-12">
-                        {{ $products->links() }}
-                    </div>
+                    <ul class="pagination justify-content-end">
+                        {{ $products->links("pagination::bootstrap-4") }}
+                    </ul>
                 </div>
             </div>
         </div>
