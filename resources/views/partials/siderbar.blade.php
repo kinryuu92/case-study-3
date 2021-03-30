@@ -10,7 +10,7 @@
                 <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Phí Minh Tú</a>
             </div>
         </div>
 
@@ -29,10 +29,10 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}" class="nav-link">
+                    <a href="{{ route('categories.index', ['en']) }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Danh mục sản phẩm
+                            {{ __('message.Category') }}
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
@@ -42,7 +42,7 @@
                     <a href="{{ route('menus.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Menus
+                            {{__('message.Menus')}}
                        </p>
                     </a>
                 </li>
@@ -51,7 +51,7 @@
                     <a href="{{ route('product.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Sản phẩm
+                            {{__('message.Product')}}
                         </p>
                     </a>
                 </li>
@@ -60,7 +60,8 @@
                     <a href="{{ route('slider.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Slider
+                            {{__('message.Slider')}}
+
                         </p>
                     </a>
                 </li>
@@ -69,7 +70,16 @@
                     <a href="{{ route('settings.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Setting
+                            {{__('message.Settings')}}
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            {{__('message.User') }}
                         </p>
                     </a>
                 </li>

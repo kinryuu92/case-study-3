@@ -1,7 +1,14 @@
 @extends('layouts.admin')
+
 @section('title')
     <title>Trang chu</title>
 @endsection
+
+@section('js')
+    <script src="{{ asset('vendors/sweetAlert2/sweetalert2@10.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admins/main.js') }}"></script>
+@endsection
+
 @section('content')
     <div class="content-wrapper">
         @include('partials.content-header', ['name'=>'category', 'key'=>'List'])
@@ -15,9 +22,9 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tên danh mục</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">STT</th>
+                                <th scope="col">{{__('message.Category name')}}</th>
+                                <th scope="col">{{__('message.Action')}}</th>
                             </tr>
                             </thead>
 

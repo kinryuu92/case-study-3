@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminUserControler;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\languageController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SettingAdminControler;
 use App\Http\Controllers\SliderAdminControler;
@@ -17,14 +19,14 @@ Route::get('/home', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::prefix('categories')->group(function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
-        Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
-        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
-        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
-    });
+//    Route::prefix('categories')->group(function () {
+//        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+//        Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
+//        Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
+//        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+//        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+//        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+//    });
 
     Route::prefix('menus')->group(function () {
         Route::get('/', [MenuController::class, 'index'])->name('menus.index');
@@ -59,10 +61,17 @@ Route::prefix('admin')->group(function () {
     Route::prefix('settings')->group(function () {
         Route::get('/', [SettingAdminControler::class, 'index'])->name('settings.index');
         Route::get('/create', [SettingAdminControler::class, 'create'])->name('settings.create');
-
-
-
+        Route::post('/store', [SettingAdminControler::class, 'store'])->name('settings.store');
+        Route::get('/edit/{id}  ', [SettingAdminControler::class, 'edit'])->name('settings.edit');
+        Route::post('/update/{id}  ', [SettingAdminControler::class, 'update'])->name('settings.update');
+        Route::get('/delete/{id}  ', [SettingAdminControler::class, 'delete'])->name('settings.delete');
     });
+
+    Route::prefix('users')->group(function () {
+        Route::get('/', [AdminUserControler::class, 'index'])->name('users.index');
+    });
+
+    Route::get('language/{language}', [languageController::class, 'index'])->name('language.index');
 
 });
 

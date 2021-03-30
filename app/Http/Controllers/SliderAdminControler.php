@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SliderAddRequest;
 use App\Models\Slider;
+use App\Traits\DeleteModelTrait;
 use App\Traits\StorageImgTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class SliderAdminControler extends Controller
 {
+    use DeleteModelTrait;
     use StorageImgTrait;
     private $slider;
     public function __construct(Slider $slider)
@@ -75,21 +77,7 @@ class SliderAdminControler extends Controller
     }
 
     public function delete($id) {
-        try {
-            $this->slider->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'Delete success'
-            ],200);
-
-        }catch (\Exception $exception) {
-            log::error('lỗi: ' . $exception->getMessage() . '---Line: ' . $exception->getLine());
-            return response()->json([
-                'code' => 200,
-                'message' => 'Delete fail'
-            ],500);
-        }
-
+        return $this->deleteModelTrait($id, $this->slider);
     }
 
 

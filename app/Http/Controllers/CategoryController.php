@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
 
 class CategoryController extends Controller
 {
+    use DeleteModelTrait;
     private $category;
     public function __construct(Category $category)
     {
@@ -52,7 +54,12 @@ class CategoryController extends Controller
             'parent_id'=> $request->parent_id,
             'slug' => $request->name
         ]);
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('categories.index');
+    }
+
+    public function delete($id) {
+        $this->category->find($id)->delete();
+        return redirect()->route('categories.index');
     }
 
 }

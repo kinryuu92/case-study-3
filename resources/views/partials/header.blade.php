@@ -1,3 +1,14 @@
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
+<!-- flag-icon-css -->
+<link rel="stylesheet" href="{{asset('adminlte/plugins/flag-icon-css/css/flag-icon.min.css')}}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
+
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -6,7 +17,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="index3.html" class="nav-link">{{ __('message.Home') }}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
@@ -117,6 +128,21 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="flag-icon flag-icon-us"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right p-0">
+                <a href="{{ route('language.index', ['en']) }}" class="dropdown-item active">
+                    <i class="flag-icon flag-icon-us mr-2"></i> English
+                </a>
+                <a href="{{ route('language.index', ['vi']) }}" class="dropdown-item">
+                    <i class="flag-icon flag-icon-vn mr-2"></i> Tiếng việt
+                </a>
+            </div>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                 <i class="fas fa-th-large"></i>
@@ -124,4 +150,12 @@
         </li>
     </ul>
 </nav>
+
+<script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    {{--<script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
+    {{--<!-- AdminLTE App -->--}}
+<script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('adminlte/dist/js/demo.js') }}"></script>
 <!-- /.navbar -->
