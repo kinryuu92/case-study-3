@@ -14,19 +14,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin', [AdminController::class, 'loginAdmin']);
 Route::post('/admin', [AdminController::class, 'postLoginAdmin']);
 
+Route::get('language/{language}', [languageController::class, 'index'])->name('language.index');
+
 Route::get('/home', function () {
     return view('home');
 });
 
 Route::prefix('admin')->group(function () {
-//    Route::prefix('categories')->group(function () {
-//        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
-//        Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
-//        Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
-//        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-//        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
-//        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
-//    });
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+    });
 
     Route::prefix('menus')->group(function () {
         Route::get('/', [MenuController::class, 'index'])->name('menus.index');
@@ -69,9 +71,10 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('users')->group(function () {
         Route::get('/', [AdminUserControler::class, 'index'])->name('users.index');
+        Route::get('/create', [AdminUserControler::class, 'create'])->name('users.create');
+        Route::post('/store', [AdminUserControler::class, 'store'])->name('users.store');
     });
 
-    Route::get('language/{language}', [languageController::class, 'index'])->name('language.index');
 
 });
 
