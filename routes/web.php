@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminRoleControler;
 use App\Http\Controllers\AdminUserControler;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\languageController;
@@ -73,7 +74,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [AdminUserControler::class, 'index'])->name('users.index');
         Route::get('/create', [AdminUserControler::class, 'create'])->name('users.create');
         Route::post('/store', [AdminUserControler::class, 'store'])->name('users.store');
+        Route::get('/edit/{id}', [AdminUserControler::class, 'edit'])->name('users.edit');
+        Route::post('/update/{id}', [AdminUserControler::class, 'update'])->name('users.update');
+        Route::get('/delete/{id}', [AdminUserControler::class, 'delete'])->name('users.delete');
+
     });
+
+    Route::prefix('roles')->group(function () {
+            Route::get('/', [AdminRoleControler::class, 'index'])->name('roles.index');
+            Route::get('/create', [AdminRoleControler::class, 'create'])->name('roles.create');
+
+
+    });
+
 
 
 });

@@ -9,5 +9,6 @@ return [
     "Category name" => "Tên danh mục",
     "Action" => "Hoạt động",
     "Menus" => "Thư mục",
+    "Roles" => "Danh sách vai trò",
 ];
 

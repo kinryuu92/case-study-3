@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('css')
-    <link href="{{ asset('admins/slider/index/index.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('js')
@@ -38,9 +37,9 @@
                                     <td>{{ $user->email }}</td>
 
                                     <td>
-                                        <a href=""
+                                        <a href="{{ route('users.edit', ['id'=>$user->id] ), }}"
                                            class="btn btn-default">Edit</a>
-                                        <a data-url=""
+                                        <a data-url="{{ route('users.delete', ['id'=>$user->id]) }}"
                                            class="btn btn-danger action_delete">Delete</a>
                                     </td>
                                 </tr>

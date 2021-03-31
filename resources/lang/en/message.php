@@ -9,5 +9,6 @@ return [
     "Category name" => "Category name",
     "Action" => "Action",
     "Menus" => "Menus",
+    "Roles" => "Roles",
 
 ];

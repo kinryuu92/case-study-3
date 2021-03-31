@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Components\MenuRecusive;
 use App\Models\Menu;
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Psr7\str;
 
 class MenuController extends Controller
 {
+    use DeleteModelTrait;
     private $menuRecusive;
     private $menu;
     public function __construct(MenuRecusive $menuRecusive, Menu $menu)
@@ -55,7 +57,8 @@ class MenuController extends Controller
     }
     public function delete($id)
     {
-        $this->menu->find($id)->delete();
-        return redirect()->route('menus.index');
+        return $this->deleteModelTrait($id, $this->menu);
+//        $this->menu->find($id)->delete();
+//        return redirect()->route('menus.index');
     }
 }
