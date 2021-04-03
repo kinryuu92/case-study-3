@@ -51,6 +51,7 @@
                                        class="form-control"
                                        placeholder="Nhập password"
                                        name="password"
+                                       value="{{ $user->password }}"
                                 >
                             </div>
 

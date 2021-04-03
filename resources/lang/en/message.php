@@ -10,5 +10,6 @@ return [
     "Action" => "Action",
     "Menus" => "Menus",
     "Roles" => "Roles",
+    "Permission" => "Permission"
 
 ];

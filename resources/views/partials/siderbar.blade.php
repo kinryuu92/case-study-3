@@ -93,6 +93,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('permission.create') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                                {{__('message.Permission') }}
+                        </p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
     </div>

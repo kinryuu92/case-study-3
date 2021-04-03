@@ -10,5 +10,6 @@ return [
     "Action" => "Hoạt động",
     "Menus" => "Thư mục",
     "Roles" => "Danh sách vai trò",
+    "Permission" => "Dữ liệu cho phép truy cập"
 ];
 
